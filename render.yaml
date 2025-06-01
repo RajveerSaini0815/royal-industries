@@ -1,18 +1,8 @@
 services:
   - type: web
-    name: royal-industries
+    name: laravel-app
     env: php
-    buildCommand: |
-      yarn install
-      yarn build
-      composer install
-      php artisan migrate --force
-      php artisan storage:link
-    startCommand: php artisan serve --host 0.0.0.0 --port 10000
-    envVars:
-      - key: APP_ENV
-        value: production
-      - key: APP_KEY
-        generateValue: true
-      - key: APP_DEBUG
-        value: false
+    buildCommand: "composer install"
+    startCommand: "php artisan serve --host 0.0.0.0 --port 10000"
+    plan: free
+    rootDir: public

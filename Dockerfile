@@ -21,7 +21,7 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 RUN chmod -R 777 storage bootstrap/cache
 
-RUN cp .env.example .env && \
+RUN cp .env && \
     php artisan key:generate
 
 EXPOSE 8000
